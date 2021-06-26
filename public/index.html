@@ -3,41 +3,94 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/style.css">
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
+    <script src="script.js" defer></script>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    
+    <title>Microsoft Teams</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div class="outer">
+      <div id="root" class="root">
+      </div>
+      <div class="root inner" style="background: rgba(0, 0, 0, 0.0);">
+        <div class="container">
+            <div class="maincard">
+            
+              <div class="card">
+                <p id="caststatus" class="big">
+                  Connecting...
+                </p>
+              </div>
+            </div>
+            <!-- <p>
+                Please use headphones!
+            </p> -->
+            <button class="call-btn">
+                Connect
+            </button>
+        
+            
+          <section class="call-container" hidden>
+              <!-- <div class="audio-container">
+                  <p>You're automatically muted, unmute yourself!</p>
+                  <audio controls id="remoteAudio" muted="true"></audio>
+                  <audio controls id="localAudio" muted="true"></audio>
+              </div> -->
+              <button class="btn" onClick="myFunction();" id="img">🌞
+              <div class="video-container" style="display: block;">
+                
+                  <video id="remoteVideo" volume = 5></video>
+                  <video id="localVideo" volume = 5></video>
+                                  
+              </div>
+            </button>
+              <!-- <button class="hangup-btn">
+                  Hang up
+              </button>
+              <button onclick=mute()>
+                  Mute button
+              </button> -->
+          </section>
+      </div>
+      <section class="modal" hidden>
+        <div id="close">
+            close
+        </div>
+        <div class="inner-modal">
+            <label>Give us your friend's device ID</label>
+            <input placeholder="Enter your friend's device ID" aria-colcount="10">
+            <button class="connect-btn" >
+                Connect
+            </button>
+        </div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    </section>
+      </div>
+    </div>
+    <script>
+      function myFunction(){
+      let root = document.documentElement;
+      let x = document.getElementById("img");
+      let videoVal = document.getElementsByTagName("video");
+      // let h1Val = document.h1;
+      root.classList.toggle("dark-mode");
+      x.classList.toggle("inverted");
+      // pictureVal.classList.toggle("inverted");
+      videoVal.classList.toggle("inverted");
+      // h1Val.classList.toggle("inverted");
+    }
+    </script>
   </body>
+
 </html>

@@ -1,0 +1,36 @@
+.body{
+    padding:30px;
+    flex: 0.99;
+    /* height: 50vh; */
+    color: white;
+    background: linear-gradient(rgb(91,87,115), rgba(0,0,0,1));
+    /* background: #9b9bc2; */
+    /* background: rgb(91,87,115); */
+    height: 93vh;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    overflow-y: hidden;
+    align-items: center;
+}
+
+video{
+    align-items: center;
+    margin-left: 140px;
+    height: 90vh;
+    border-radius: 35px;
+}
+
+@media screen and (max-width: 700px) {
+    .body{
+        padding: 0;
+        margin-top: 65px;
+        margin-left: -320px;
+        width: 700px;
+        float: left;
+        flex: 1;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    
+  }
