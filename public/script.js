@@ -6,8 +6,8 @@ const peer = new Peer(''+Math.floor(Math.random()*2**18).toString(36).padStart(4
 
 window.peer = peer;
 
- var video = document.getElementById("remoteVideo");
- 
+var video = document.getElementById("remoteVideo");
+
  function mute(){
      if(video.volume == 0)
      {
@@ -20,8 +20,8 @@ window.peer = peer;
 function getLocalStream() {
     navigator.mediaDevices.getUserMedia({video: true, audio: false}).then( stream => {
         window.localStream = stream; // A
-        //window.localAudio.srcObject = stream ;  // B
-        //window.localAudio.autoplay = true; 
+        // window.localAudio.srcObject = stream ;  // B
+        // window.localAudio.autoplay = true; 
         window.localVideo.srcObject = stream;// C
         window.localVideo.autoplay = true;
     }).catch( err => {
@@ -87,8 +87,6 @@ callBtn.addEventListener('click', function(){
     })
 })
 
-
-
 peer.on('call', function(call) {
     const answerCall = confirm("Do you want to answer?")
  
@@ -106,12 +104,41 @@ peer.on('call', function(call) {
  });
 
  const hangUpBtn = document.querySelector('.hangup-btn');
-hangUpBtn.addEventListener('click', function (){
+hangUpBtn.addEventListener('click', function(){
     conn.close();
     showCallContent();
 })
 
 
-conn.on('close', function (){
+conn.on('close', function(){
     showCallContent();
 })
+
+
+// Mute/Unmute function
+const muteUnmute = () => {
+    const enabled = window.localStream.getAudioTracks()[0].enabled;
+    if(enabled){
+        window.localStream.getAudioTracks()[0].enabled = true;
+        setUnMuteButton();
+    }else{
+        setMuteButton();
+        window.localStream.getAudioTracks()[0].enabled = false;
+    }
+}
+
+const setMuteButton = () => {
+    const html = `
+      <i class="fas fa-microphone"></i>
+    `
+    document.querySelector('.unmute').innerHTML = html;
+  }
+  
+  const setUnmuteButton = () => {
+    const html = `
+      <i class="unmute fas fa-microphone-slash"></i>
+    `
+    document.querySelector('.unmute').innerHTML = html;
+  }
+
+

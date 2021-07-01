@@ -12,7 +12,7 @@ function MainPage() {
                 <Sidebar />
                 {/* <button className="btn" onClick={myFunction} id="img">🌞</button> */}
                 <Body />
-                <Footer />
+                {/* <Footer /> */}
             </div>    
         </div>
     )

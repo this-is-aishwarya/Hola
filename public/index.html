@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="%PUBLIC_URL%/style.css">
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
-    <script src="script.js" defer></script>
+    
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
     <title>Microsoft Teams</title>
@@ -47,6 +48,7 @@
                   <audio controls id="remoteAudio" muted="true"></audio>
                   <audio controls id="localAudio" muted="true"></audio>
               </div> -->
+            
               <button class="btn" onClick="myFunction();" id="img">🌞
               <div class="video-container" style="display: block;">
                 
@@ -61,7 +63,59 @@
               <button onclick=mute()>
                   Mute button
               </button> -->
+
+              <div class="footer">
+                <div class="footer-left"></div>
+                <div class="footer-center">
+                   <!-- <button onclick="muteUnmute();" class="un-mute">
+                     <i class="fas fa-microphone"></i>
+                     <span>Mute</span>
+                   </button>
+                   <button onclick="playStop();" class="main__controls__button main__video_button" >
+                     <i class="fas fa-video"></i>
+                     <span>Stop Video</span>
+                   </button> -->
+                   <i class="fas fa-share-square"></i>
+                 <div class="switch" >
+                   <input type="checkbox" name="un-mute" id="un-mute" />
+                       <label for="un-mute" class="unmute" onClick="muteUnmute()">    
+                           <!-- <img src="./image/micoff.png" alt="Mute_Icon.svg" title="Mute icon" /> -->
+                           <i class="fas fa-microphone"></i>
+                       </label>
+                       
+                       <label for="un-mute" class="mute">
+                           <!-- <img src="./image/micon.png" alt="Speaker_Icon.svg" title="Unmute/speaker icon" /> -->
+                           <i class="fas fa-microphone-slash"></i>
+                       </label>
+                     </div>
+
+                    <i class="fas fa-phone-slash" style="color: red;"></i>
+    
+                  <div classe="switch" >
+                  <input type="checkbox" name="un-cam" id="un-cam"/>
+                      <label for="un-cam" class="uncam" onClick="muteUnmute()">    
+                          <!-- <img src="./image/micoff.png" alt="Mute_Icon.svg" title="Mute icon" /> -->
+                          <i class="fas fa-video"></i>
+                      </label>
+                      
+                      <label for="un-cam" class="cam">
+                          <!-- <img src="./image/micon.png" alt="Speaker_Icon.svg" title="Unmute/speaker icon" /> -->
+                          <i class="fas fa-video-slash"></i>
+                      </label>
+                    </div>
+
+                    <i class="fas fa-comments"></i>
+                   <!-- <div class="btn">
+                     <input type="checkbox" name="un-mute" id="" />
+                       <label for="un-mute" class="unmute" >   
+                           <i class="fas fa-share-square"></i>
+                       </label>
+                   </div> -->
+                </div>
+                <div class="footer-right"></div>
+              </div>
           </section>
+          
       </div>
       <section class="modal" hidden>
         <div id="close">
@@ -74,7 +128,6 @@
                 Connect
             </button>
         </div>
-
     </section>
       </div>
     </div>
@@ -91,6 +144,7 @@
       // h1Val.classList.toggle("inverted");
     }
     </script>
+    <script src="script.js" defer></script>
   </body>
 
 </html>

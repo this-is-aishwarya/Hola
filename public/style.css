@@ -193,3 +193,119 @@ button {
 .inverted {
     filter: invert(1) hue-rotate(180deg);
 }
+
+.footer{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    border: 2x solid black;
+    bottom: 0;
+    height: 65px;
+    width: 96%;
+    /* background-color: #282828; */
+    padding: 20px;
+}
+
+.footer-left{
+    flex: 0.3;
+    color: white;
+    margin-left: 80px;
+    display: flex;
+    align-items: center;
+    color: white;
+    width: 200px;
+}
+
+.footer-center{
+    flex:0.4;
+    color: white;
+    padding: 0 70px;
+    margin-left: -120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 300px;
+}
+
+.footer-center{
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.2) !important;
+    background: rgba(47, 44, 51, 0.7);
+    border-radius: 26px; 
+}
+
+.footer-right{
+    flex:0.3;
+    color: white;
+}
+
+.switch {
+    margin-right: 40px;
+    margin-left: 10px;
+    /* border: 2px solid #3c3c4b; */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; 
+    cursor: pointer;
+    width: 60px;
+    }
+    
+    i{
+    font-size: 1.4em;
+    }
+    
+    .switch::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+    }
+
+input#un-mute {
+    display: none;
+    height:27px;
+}
+
+.mute i{
+    height:27px;
+}
+
+.unmute i {
+    display: none;
+    height:27px;
+}
+
+input#un-mute:checked ~ .unmute i {
+    display: initial;
+    height:27px;
+}
+
+input#un-mute:checked ~ .mute i {
+    display: none;
+    height:27px;
+}
+
+input#un-cam {
+    display: none;
+    height:27px;
+}
+
+.cam i{
+    height:27px;
+}
+
+.uncam i {
+    display: none;
+    height:27px;
+}
+
+input#un-cam:checked ~ .uncam i {
+    display: initial;
+    height:27px;
+}
+
+input#un-cam:checked ~ .cam i {
+    display: none;
+    height:27px;
+}
