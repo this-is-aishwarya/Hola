@@ -7,6 +7,7 @@ const peer = new Peer(''+Math.floor(Math.random()*2**18).toString(36).padStart(4
 window.peer = peer;
 
 var video = document.getElementById("remoteVideo");
+var currentPeer;
 
  function mute(){
      if(video.volume == 0)
@@ -18,10 +19,10 @@ var video = document.getElementById("remoteVideo");
  }
 
 function getLocalStream() {
-    navigator.mediaDevices.getUserMedia({video: true, audio: false}).then( stream => {
+    navigator.mediaDevices.getUserMedia({video: true, audio: true}).then( stream => {
         window.localStream = stream; // A
-        // window.localAudio.srcObject = stream ;  // B
-        // window.localAudio.autoplay = true; 
+        window.localAudio.srcObject = stream ;  // B
+        window.localAudio.autoplay = true; 
         window.localVideo.srcObject = stream;// C
         window.localVideo.autoplay = true;
     }).catch( err => {
@@ -97,11 +98,43 @@ peer.on('call', function(call) {
           window.remoteVideo.srcObject = stream;
           window.remoteVideo.autoplay = true;
           window.peerStream = stream;
+          currentPeer=call.peerConnection;
        });
     } else {
        console.log("call denied"); // D
     }
  });
+
+ document.getElementById("screenshare").addEventListener('click', (e) => {
+    navigator.mediaDevices.getDisplayMedia({
+        video: {
+            cursor: "always"
+        },
+        audio: {
+            echoCancellation: true,
+            noiseSuppression: true
+        }
+    }).then((stream) =>{
+        let videoTrack = stream.getVideoTracks()[0];
+        videoTrack.onended = function(){
+            stopScreenShare();
+        }
+        let sender = currentPeer.getSenders().find(function(s){
+            return s.track.kind == videoTrack.kind
+        })
+        sender.replaceTrack(videoTrack)
+    }).catch((err) => {
+        console.log("unable to get display media" + err)
+    })
+})
+
+function stopScreenShare(){
+    let videoTrack = window.localStream.getVideoTracks()[0];
+    var sender = currentPeer.getSenders().find(function(s){
+        return s.track.kind == videoTrack.kind;
+    })
+    sender.replaceTrack(videoTrack)
+}
 
  const hangUpBtn = document.querySelector('.hangup-btn');
 hangUpBtn.addEventListener('click', function(){
@@ -116,29 +149,24 @@ conn.on('close', function(){
 
 
 // Mute/Unmute function
-const muteUnmute = () => {
+// const muteUnmute = () => {
+//     const enabled = window.localStream.getAudioTracks()[0].enabled;
+//     if(enabled){
+//         window.localStream.getAudioTracks()[0].enabled = true;
+//         setUnMuteButton();
+//     }else{
+//         setMuteButton();
+//         window.localStream.getAudioTracks()[0].enabled = false;
+//     }
+// }
+
+document.getElementById("muteUnmute").addEventListener('click', (e) => {
     const enabled = window.localStream.getAudioTracks()[0].enabled;
     if(enabled){
-        window.localStream.getAudioTracks()[0].enabled = true;
-        setUnMuteButton();
+        mediaStream.getAudioTracks()[0].enabled = true;
     }else{
-        setMuteButton();
-        window.localStream.getAudioTracks()[0].enabled = false;
+        mediaStream.getAudioTracks()[0].enabled = false;
     }
-}
-
-const setMuteButton = () => {
-    const html = `
-      <i class="fas fa-microphone"></i>
-    `
-    document.querySelector('.unmute').innerHTML = html;
-  }
-  
-  const setUnmuteButton = () => {
-    const html = `
-      <i class="unmute fas fa-microphone-slash"></i>
-    `
-    document.querySelector('.unmute').innerHTML = html;
-  }
+})
 
 

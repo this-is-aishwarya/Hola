@@ -52,8 +52,8 @@
               <button class="btn" onClick="myFunction();" id="img">🌞
               <div class="video-container" style="display: block;">
                 
-                  <video id="remoteVideo" volume = 5></video>
-                  <video id="localVideo" volume = 5></video>
+                  <video id="remoteVideo" volume = 0></video>
+                  <video id="localVideo" volume = 0></video>
                                   
               </div>
             </button>
@@ -75,17 +75,17 @@
                      <i class="fas fa-video"></i>
                      <span>Stop Video</span>
                    </button> -->
-                   <i class="fas fa-share-square" style="margin-left: -15px;"></i>
+                   <i class="fas fa-share-square" style="margin-left: -15px;" id="screenshare"></i>
                  <div class="switch" style="margin-left: 27px;">
                    <input type="checkbox" name="un-mute" id="un-mute" />
-                       <label for="un-mute" class="unmute" onClick="muteUnmute()">    
+                       <label for="un-mute" class="unmute" >    
                            <!-- <img src="./image/micoff.png" alt="Mute_Icon.svg" title="Mute icon" /> -->
-                           <i class="fas fa-microphone" style="color: green;"></i>
+                           <i class="fas fa-microphone" style="color: green;" id="muteUnmute"></i>
                        </label>
                        
                        <label for="un-mute" class="mute">
                            <!-- <img src="./image/micon.png" alt="Speaker_Icon.svg" title="Unmute/speaker icon" /> -->
-                           <i class="fas fa-microphone-slash"></i>
+                           <i class="fas fa-microphone-slash" id="muteUnmute"></i>
                        </label>
                      </div>
 
