@@ -36,10 +36,28 @@
             </div>
             <!-- <p>
                 Please use headphones!
-            </p> -->
+              </p> -->
             <button class="call-btn">
-                Connect
+              <i class="fa fa-phone" aria-hidden="true"></i>
             </button>
+
+            <button id="chatpopup" class="chatpopup">
+              <i class="fas fa-comments"></i>
+            </button>
+
+            <div class="chat" id="chat">
+              <div class="head">
+                <h3 class="chathead">Chat</h3>
+                <button id="close">X</button>
+              </div>
+              
+              <div id="message-container"></div>
+              <p id=messages></p>
+              <div class="msg-controls">
+                  <input id="content" type="text"></input>
+                  <button id="msgsend">Send ✉</button>
+              </div>
+            </div>
         
             
           <section class="call-container" hidden>
@@ -80,17 +98,17 @@
                    <input type="checkbox" name="un-mute" id="un-mute" />
                        <label for="un-mute" class="unmute" >    
                            <!-- <img src="./image/micoff.png" alt="Mute_Icon.svg" title="Mute icon" /> -->
-                           <i class="fas fa-microphone" style="color: green;" id="muteUnmute"></i>
+                           <i class="fas fa-microphone" style="color: green;"></i>
                        </label>
                        
                        <label for="un-mute" class="mute">
                            <!-- <img src="./image/micon.png" alt="Speaker_Icon.svg" title="Unmute/speaker icon" /> -->
-                           <i class="fas fa-microphone-slash" id="muteUnmute"></i>
+                           <i class="fas fa-microphone-slash"></i>
                        </label>
                      </div>
 
                     <div class="switch" style="background: white;">
-                      <i class="fas fa-phone" style="color: red;"></i>
+                      <i class="fas fa-phone" style="color: red;" id="muteUnmute"></i>
                     </div>
                     
     
@@ -107,7 +125,7 @@
                       </label>
                     </div>
 
-                    <div class="switch" style="margin-left: 27px;">
+                    <div class="switch" style="margin-left: 27px;" id="func">
                       <i class="fas fa-comments"></i>
                     </div>
                    <!-- <div class="btn">
@@ -122,6 +140,7 @@
           </section>
           
       </div>
+      
       <section class="modal" hidden>
         <div id="close">
             close

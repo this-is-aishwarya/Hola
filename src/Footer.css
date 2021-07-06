@@ -3,9 +3,10 @@
     display: flex;
     justify-content: space-between;
     border: 2x solid black;
-    bottom: 0;
+    bottom: 75px;
+    margin-left: 165px;
     height: 65px;
-    width: 96%;
+    width: 70%;
     /* background-color: #282828; */
     padding: 20px;
 }

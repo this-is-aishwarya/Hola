@@ -5,24 +5,17 @@ const peer = new Peer(''+Math.floor(Math.random()*2**18).toString(36).padStart(4
 });
 
 window.peer = peer;
-
+let myVideo;
 var video = document.getElementById("remoteVideo");
 var currentPeer;
 
- function mute(){
-     if(video.volume == 0)
-     {
-        video.volume = 1;
-     }
-     else 
-     video.volume = 0;
- }
 
 function getLocalStream() {
-    navigator.mediaDevices.getUserMedia({video: true, audio: true}).then( stream => {
+    navigator.mediaDevices.getUserMedia({video: true, audio: false}).then( stream => {
         window.localStream = stream; // A
-        window.localAudio.srcObject = stream ;  // B
-        window.localAudio.autoplay = true; 
+        myVideo=stream;
+        // window.localAudio.srcObject = stream ;  // B
+        // window.localAudio.autoplay = true; 
         window.localVideo.srcObject = stream;// C
         window.localVideo.autoplay = true;
     }).catch( err => {
@@ -31,9 +24,7 @@ function getLocalStream() {
 }
 getLocalStream();
 
-peer.on('open', function () {
-    window.caststatus.textContent = `Your device ID is: ${peer.id}`;
-});
+let stop = k => localVideo.srcObject.getTracks().map(t => t.kind == k && t.stop());
 
 const audioContainer = document.querySelector('.call-container');/**
  * Displays the call button and peer ID
@@ -66,14 +57,25 @@ function getStreamCode() {
 let conn;
 function connectPeers() {
     conn = peer.connect(code);
+    data_channel = peer.connect(code)
 }
 
 
 peer.on('connection', function(connection){
     conn = connection;
+    data_channel = connection;
+    // data_channel.on('data', function(data){
+    //     console.log('Incoming data', data);
+    // });
 });
 
+peer.on('open', function () {
+    window.caststatus.textContent = `Your device ID is: ${peer.id}`;
+});
+
+
 const callBtn = document.querySelector('.call-btn');
+const messageContainer = document.getElementById("message-container")
 
 callBtn.addEventListener('click', function(){
     getStreamCode();
@@ -105,6 +107,43 @@ peer.on('call', function(call) {
     }
  });
 
+
+// Chat feature
+const msgsend = document.getElementById("msgsend");
+msgsend.addEventListener('click', function (){
+        data_channel.on('data',function(data){
+            console.log('Received: '+ data);
+            appendMessage(data);
+            // document.write(data);
+        });
+
+    console.log(data_channel);
+    message = document.getElementById('content');
+    data_channel.send(message.value);
+    //data_channel.send('Hello')
+    //conn.close();
+    //showCallContent();
+})
+
+function appendMessage(message){
+    const messageElement = document.createElement('div')
+    messageElement.innerText = message
+    messageContainer.append(messageElement)
+}
+
+const chatpopup = document.getElementById('chatpopup')
+const chat = document.getElementById('chat')
+const close = document.getElementById('close')
+
+chatpopup.addEventListener('click', () =>{
+    chat.classList.add('show');
+});
+
+close.addEventListener('click', () =>{
+    chat.classList.remove('show');
+});
+
+// Screen Share
  document.getElementById("screenshare").addEventListener('click', (e) => {
     navigator.mediaDevices.getDisplayMedia({
         video: {
@@ -136,37 +175,41 @@ function stopScreenShare(){
     sender.replaceTrack(videoTrack)
 }
 
- const hangUpBtn = document.querySelector('.hangup-btn');
+const hangUpBtn = document.querySelector('.hangup-btn');
 hangUpBtn.addEventListener('click', function(){
     conn.close();
     showCallContent();
 })
 
 
-conn.on('close', function(){
-    showCallContent();
-})
+// conn.on('close', function(){
+//     showCallContent();
+// })
 
 
 // Mute/Unmute function
-// const muteUnmute = () => {
-//     const enabled = window.localStream.getAudioTracks()[0].enabled;
-//     if(enabled){
-//         window.localStream.getAudioTracks()[0].enabled = true;
-//         setUnMuteButton();
-//     }else{
-//         setMuteButton();
-//         window.localStream.getAudioTracks()[0].enabled = false;
-//     }
-// }
-
-document.getElementById("muteUnmute").addEventListener('click', (e) => {
+function muteAudio(){
     const enabled = window.localStream.getAudioTracks()[0].enabled;
     if(enabled){
-        mediaStream.getAudioTracks()[0].enabled = true;
+        window.localStream.getAudioTracks()[0].enabled = true;
     }else{
-        mediaStream.getAudioTracks()[0].enabled = false;
+        window.localStream.getAudioTracks()[0].enabled = false;
     }
-})
+}
 
+// document.getElementById("muteUnmute").addEventListener('click', (e) => {
+//     const enabled = myVideo.getAudioTracks()[0].enabled;
+//     if(enabled){
+//         myVideo.getAudioTracks()[0].enabled = false;
+//     }else{
+//         myVideo.getAudioTracks()[0].enabled = true;
+//     }
+// })
+
+
+const func = document.getElementById('func')
+
+func.addEventListener('click', () =>{
+    alert("Hello")
+});
 

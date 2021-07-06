@@ -44,12 +44,14 @@ button {
     font-size: 3rem;*/
     margin-left: 60%; 
     margin-top: 35%;
+    border-radius: 50%;
+    height: 50%;
     padding: 50px;
     position: relative;
     border: 2px solid white;
     background-color: #5b577300;
-    color: white;
-    padding: 15px 32px;
+    color: green;
+    padding: 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -195,15 +197,16 @@ button {
 }
 
 .footer{
-    position: fixed;
+    /* position: fixed; */
     display: flex;
     justify-content: space-between;
     border: 2x solid black;
-    bottom: 0;
+    /* bottom: 0; */
     height: 65px;
     width: 96%;
     /* background-color: #282828; */
     padding: 20px;
+    margin-bottom: -70px;
 }
 
 .footer-left{
@@ -308,4 +311,87 @@ input#un-cam:checked ~ .uncam i {
 input#un-cam:checked ~ .cam i {
     display: none;
     height:27px;
+}
+
+/* Chat Styling */
+.chat{
+    opacity: 0;
+    color: black;
+    float: right;
+    right: 20px;
+    bottom: 40px;
+    position: fixed;
+    background-color: white;
+    height: 500px;
+    border-radius: 20px;
+    border: 1px solid grey;
+    font: Verdana;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    transition: opacity 0.3s ease;
+}
+
+.chat.show{
+    opacity: 1;
+}
+
+.chatpopup{
+    font-size: 1.5rem;
+    border: 2px solid white;
+    background-color: #5b577300;
+    color: darkcyan;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+    margin-left: 30px;
+}
+
+.head{
+    display: inline-flex;
+    background-color: #8d72ab;
+    width: 100%;
+    border-top-left-radius: 20px ;
+    border-top-right-radius: 20px ;
+}
+
+.chathead{
+    text-align: center;
+    justify-content: center;
+    background-color: #8d72ab;
+    color: white;
+    margin-left: 30px;
+    /* padding: 5px;
+    margin-top: -10px; */
+}
+
+#close{
+    background-color: #8d72ab;
+    position: fixed;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    float: right;
+    right: 30px;
+    border-radius: 50%;
+}
+
+#message-container{
+    padding: 20px;
+}
+
+.msg-controls{
+    padding: 20px;
+    margin-top: 340px;
+}
+
+#content{
+    border-radius: 15px;
+}
+
+#msgsend{
+    border-radius: 20px;
+    background-color: indigo;
+    color: white;
 }
