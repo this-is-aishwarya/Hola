@@ -207,9 +207,4 @@ function muteAudio(){
 // })
 
 
-const func = document.getElementById('func')
-
-func.addEventListener('click', () =>{
-    alert("Hello")
-});
 
