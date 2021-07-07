@@ -196,6 +196,22 @@ button {
     filter: invert(1) hue-rotate(180deg);
 }
 
+/* ------Collaborative Board -----------*/
+#canvas{
+    background-color: white;
+    border-radius: 35px;
+    position: relative;
+}
+
+.drawing{
+    position: relative;
+    opacity: 0;
+}
+
+.drawing.show{
+    opacity: 1;
+}
+
 .footer{
     /* position: fixed; */
     display: flex;

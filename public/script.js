@@ -143,6 +143,62 @@ close.addEventListener('click', () =>{
     chat.classList.remove('show');
 });
 
+// -----------Collaborative Board-------------------
+const boardpop = document.getElementById('boardpop')
+const drawing = document.getElementById('drawing')
+const closeboard = document.getElementById('closeboard')
+
+boardpop.addEventListener('click', () =>{
+    drawing.classList.add('show');
+});
+
+closeboard.addEventListener('click', () =>{
+    drawing.classList.remove('show');
+});
+
+let canvas = document.getElementById("canvas");
+
+canvas.width = 0.60 * window.innerWidth;
+// canvas.height = window.innerHeight;
+canvas.height = 0.60*window.innerHeight;
+
+var io = io.connect("http://localhost:8000/");
+let ctx = canvas.getContext("2d");
+
+let x;
+let y;
+let mouseDown = false;
+
+window.onmousedown = (e) => {
+  ctx.moveTo(x, y);
+  io.emit("down", { x, y });
+  mouseDown = true;
+};
+
+window.onmouseup = (e) => {
+  mouseDown = false;
+};
+
+io.on("ondraw", ({ x, y }) => {
+  ctx.lineTo(x, y);
+  ctx.stroke();
+});
+
+io.on("ondown", ({ x, y }) => {
+  ctx.moveTo(x, y);
+});
+
+window.onmousemove = (e) => {
+  x = e.clientX;
+  y = e.clientY;
+
+  if (mouseDown) {
+    io.emit("draw", { x, y });
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  }
+};
+
 // Screen Share
  document.getElementById("screenshare").addEventListener('click', (e) => {
     navigator.mediaDevices.getDisplayMedia({

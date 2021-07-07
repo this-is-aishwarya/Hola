@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="%PUBLIC_URL%/style.css">
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
-    
+    <script src="script.js" defer></script>
     <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
@@ -69,11 +69,17 @@
             
               <button class="btn" onClick="myFunction();" id="img">🌞
               <div class="video-container" style="display: block;">
-                
                   <video id="remoteVideo" volume = 0></video>
                   <video id="localVideo" volume = 0></video>
                                   
               </div>
+
+              <button id="boardpop">Canvas</button>
+                <div class="drawing" id="drawing">
+                    <button id="closeboard">X</button>
+                    <canvas id="canvas"></canvas>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+                </div>
             </button>
               <!-- <button class="hangup-btn">
                   Hang up
@@ -81,7 +87,6 @@
               <button onclick=mute()>
                   Mute button
               </button> -->
-              <button type="submit" id="chatpopup">Chat</button>
               <div class="footer">
                 <div class="footer-left"></div>
                 <div class="footer-center">
