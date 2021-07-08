@@ -4,13 +4,7 @@ const path = require('path');
 const app = express();
 const server = http.createServer(app);
 
-var io = require('socket.io')(server,  {
-  cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
-    credentials: true
-  }
-});
+var io = require('socket.io')(server);
 const { ExpressPeerServer } = require('peer');
 const port = process.env.PORT || "8000";
 
@@ -50,21 +44,13 @@ const peerServer = ExpressPeerServer(server, {
 });
 
 
-app.use(peerServer,  {
-  cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
-  }
-});
+app.use(peerServer);
 
 app.use(express.static(path.join(__dirname)));
 
 app.get("/", (request, response) => {
     response.sendFile(__dirname + "/index.html");
-    response.header('Access-Control-Allow-Origin', "http://localhost:8000");
-    response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    response.header('Access-Control-Allow-Headers', 'Content-Type');
-
+   
 });
 
 server.listen(port);

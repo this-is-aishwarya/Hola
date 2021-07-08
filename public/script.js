@@ -158,11 +158,11 @@ closeboard.addEventListener('click', () =>{
 
 let canvas = document.getElementById("canvas");
 
-canvas.width = 0.60 * window.innerWidth;
+canvas.width = 0.70 * window.innerWidth;
 // canvas.height = window.innerHeight;
-canvas.height = 0.60*window.innerHeight;
+canvas.height = 0.80*window.innerHeight;
 
-var io = io.connect("http://localhost:8000/", { transport : ['websocket'] });
+var io = io.connect("http://localhost:8000/");
 let ctx = canvas.getContext("2d");
 
 let x;

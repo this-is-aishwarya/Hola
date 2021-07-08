@@ -1,6 +1,5 @@
 {
   "name": "teams",
-  "proxy": "http://localhost:8000",
   "version": "1.0.0",
   "private": false,
   "main": "server.js",
