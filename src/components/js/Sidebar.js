@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Sidebar.css";
+import "../css/Sidebar.css";
 import Sidebaroption from "./Sidebaroption";
 import Sidebaroption2 from "./Sidebaroption2";
 import Sidebaroption3 from "./Sidebaroption3";

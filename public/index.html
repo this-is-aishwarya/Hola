@@ -22,127 +22,111 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="outer">
-      <div id="root" class="root">
-      </div>
+      <div id="root" class="root"></div>
+
       <div class="root inner" style="background: rgba(0, 0, 0, 0.0);">
         <div class="container">
-            <div class="maincard">
+          <div class="maincard">
+            <div class="card">
+              <p id="caststatus" class="big">
+                Connecting...
+              </p>
+            </div>
+          </div>
+          
+          <!-- Main Buttons -->
+          <button class="call-btn">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+          </button>
+          <button id="chatpopup" class="chatpopup">
+            <i class="fas fa-comments"></i>
+          </button>
+
+          <!-- Chat Feature -->
+          <div class="chat" id="chat">
+            <div class="head">
+              <h3 class="chathead">Chat</h3>
+              <button id="close">X</button>
+            </div>
             
-              <div class="card">
-                <p id="caststatus" class="big">
-                  Connecting...
-                </p>
-              </div>
+            <div id="message-container"></div>
+            <p id=messages></p>
+            <div class="msg-controls">
+                <input id="content" type="text"></input>
+                <button id="msgsend">Send ✉</button>
             </div>
-            <!-- <p>
-                Please use headphones!
-              </p> -->
-            <button class="call-btn">
-              <i class="fa fa-phone" aria-hidden="true"></i>
-            </button>
-
-            <button id="chatpopup" class="chatpopup">
-              <i class="fas fa-comments"></i>
-            </button>
-
-            <div class="chat" id="chat">
-              <div class="head">
-                <h3 class="chathead">Chat</h3>
-                <button id="close">X</button>
-              </div>
-              
-              <div id="message-container"></div>
-              <p id=messages></p>
-              <div class="msg-controls">
-                  <input id="content" type="text"></input>
-                  <button id="msgsend">Send ✉</button>
-              </div>
-            </div>
+          </div>
         
-            
-          <section class="call-container" hidden>
-              <!-- <div class="audio-container">
-                  <p>You're automatically muted, unmute yourself!</p>
-                  <audio controls id="remoteAudio" muted="true"></audio>
-                  <audio controls id="localAudio" muted="true"></audio>
-              </div> -->
-             
-              <button class="btn" onClick="myFunction();" id="img">🌞
+          <!-- After the call gets connected -->
+        <section class="call-container" hidden>
+          
+            <!-- Light/Dark Mode toggle button -->
+            <button class="btn" onClick="myFunction();" id="img">🌞  
+
+              <!--Video containers : Remote -> Receiver ; Local -> Sender  -->
               <div class="video-container" style="display: block;">
                   <video id="remoteVideo" volume = 0></video>
-                  <video id="localVideo" volume = 0></video>
-                                  
+                  <video id="localVideo" volume = 0></video>              
               </div>
             </button>
-              <!-- <button class="hangup-btn">
-                  Hang up
-              </button>
-              <button onclick=mute()>
-                  Mute button
-              </button> -->
-              <button class="boardpop" id="boardpop">🖌️</button>
-                <div class="drawing" id="drawing">
-                    <button id="closeboard" class="closeboard">X</button>
-                    <canvas id="canvas"></canvas>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
-                    <script src="./script.js" defer></script>
-                </div>
-              <div class="footer">
-                <div class="footer-left"></div>
-                <div class="footer-center">
-                   <!-- <button onclick="muteUnmute();" class="un-mute">
-                     <i class="fas fa-microphone"></i>
-                     <span>Mute</span>
-                   </button>
-                   <button onclick="playStop();" class="main__controls__button main__video_button" >
-                     <i class="fas fa-video"></i>
-                     <span>Stop Video</span>
-                   </button> -->
-                   <i class="fas fa-share-square" style="margin-left: -15px;" id="screenshare"></i>
-                 <div class="switch" style="margin-left: 27px;">
-                   <input type="checkbox" name="un-mute" id="un-mute" />
-                       <label for="un-mute" class="unmute" >    
-                           <!-- <img src="./image/micoff.png" alt="Mute_Icon.svg" title="Mute icon" /> -->
-                           <i class="fas fa-microphone" style="color: green;"></i>
-                       </label>
-                       
-                       <label for="un-mute" class="mute">
-                           <!-- <img src="./image/micon.png" alt="Speaker_Icon.svg" title="Unmute/speaker icon" /> -->
-                           <i class="fas fa-microphone-slash"></i>
-                       </label>
-                     </div>
+            
+            <!----------- Collaborative Canvas Board---------->
+            <button class="boardpop" id="boardpop">🖌️</button>
+            <div class="drawing" id="drawing">
+                <button id="closeboard" class="closeboard">X</button>
+                <canvas id="canvas"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+                <script src="./script.js" defer></script>
+            </div>
 
-                    <div class="switch" style="background: white;">
-                      <i class="fas fa-phone" style="color: red;" id="muteUnmute"></i>
-                    </div>
-                    
-    
-                  <div classe="switch" style="margin-left: 10px;">
-                  <input type="checkbox" name="un-cam" id="un-cam"/>
-                      <label for="un-cam" class="uncam" onClick="muteUnmute()">    
-                          <!-- <img src="./image/micoff.png" alt="Mute_Icon.svg" title="Mute icon" /> -->
-                          <i class="fas fa-video"></i>
-                      </label>
+            <!--------- Footer ------------->
+            <div class="footer">
+              <div class="footer-left"></div>
+
+              <!-- Main Controls -->
+              <div class="footer-center">
+
+                <!-- Screenshare Icon -->
+                <i class="fas fa-share-square" style="margin-left: -15px;" id="screenshare"></i>
+
+                <!-- Mute/Unmute Button -->
+                <div class="switch" style="margin-left: 27px;">
+                  <input type="checkbox" name="un-mute" id="un-mute" />
+                    <label for="un-mute" class="unmute" >    
+                        <i class="fas fa-microphone" style="color: green;"></i>
+                    </label>
                       
-                      <label for="un-cam" class="cam">
-                          <!-- <img src="./image/micon.png" alt="Speaker_Icon.svg" title="Unmute/speaker icon" /> -->
-                          <i class="fas fa-video-slash"></i>
-                      </label>
-                    </div>
-
-                    <div class="switch" style="margin-left: 27px;" id="func">
-                      <i class="fas fa-comments"></i>
-                    </div>
-                   <!-- <div class="btn">
-                     <input type="checkbox" name="un-mute" id="" />
-                       <label for="un-mute" class="unmute" >   
-                           <i class="fas fa-share-square"></i>
-                       </label>
-                   </div> -->
+                    <label for="un-mute" class="mute">
+                        <i class="fas fa-microphone-slash"></i>
+                    </label>
                 </div>
-                <div class="footer-right"></div>
+
+                <!-- Call End button -->
+                <div class="switch" style="background: white;">
+                  <i class="fas fa-phone" style="color: red;" id="hangUpbtn"></i>
+                </div>
+                  
+                <!-- Video on/off button -->
+                <div classe="switch" style="margin-left: 10px;">
+                <input type="checkbox" name="un-cam" id="un-cam"/>
+                    <label for="un-cam" class="uncam" onClick="muteUnmute()">    
+                      <i class="fas fa-video"></i>
+                    </label>
+                    
+                    <label for="un-cam" class="cam">
+                      <i class="fas fa-video-slash"></i>
+                    </label>
+                </div>
+
+                <!-- Chat Button -->
+                <div class="switch" style="margin-left: 27px;" id="func">
+                  <i class="fas fa-comments"></i>
+                </div>
+                  
               </div>
-          </section>
+              <div class="footer-right"></div>
+            </div>
+        </section>
           
       </div>
       

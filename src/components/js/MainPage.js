@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from "./Sidebar";
 import Body from "./Body";
 import Footer from "./Footer";
-import "./MainPage.css";
+import "../css/MainPage.css";
 import {myFunction} from "./dark";
 
 function MainPage() {

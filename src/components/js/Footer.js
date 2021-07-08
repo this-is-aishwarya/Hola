@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Footer.css";
+import "../css/Footer.css";
 import ScreenShareIcon from '@material-ui/icons/ScreenShare';
 import {Grid, Slider} from '@material-ui/core';
 import VolumeDownIcon from '@material-ui/icons/VolumeDown';

@@ -1,13 +1,13 @@
 import React from 'react';
-import "./Sidebaroption4.css"
+import "../css/Sidebaroption.css"
 
-function Sidebaroption4({title, Icon}) {
+function Sidebaroption({title, Icon}) {
     return (
-        <div className="sidebarOption4">
+        <div className="sidebarOption">
             {Icon && <Icon className="sidebarOptionicons" /> }
             {Icon ? <h4>{title}</h4> : <p>{title}</p>}
         </div>
     )
 }
 
-export default Sidebaroption4
+export default Sidebaroption
