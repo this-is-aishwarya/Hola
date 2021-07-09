@@ -93,7 +93,7 @@
                 <div class="switch" style="margin-left: 27px;">
                   <input type="checkbox" name="un-mute" id="un-mute" />
                     <label for="un-mute" class="unmute" >    
-                        <i class="fas fa-microphone" style="color: green;"></i>
+                        <i class="fas fa-microphone" style="color: green;" onClick="muteAudio()"></i>
                     </label>
                       
                     <label for="un-mute" class="mute">
@@ -102,14 +102,14 @@
                 </div>
 
                 <!-- Call End button -->
-                <div class="switch" style="background: white;">
-                  <i class="fas fa-phone" style="color: red;" id="hangUpbtn"></i>
+                <div class="switch" style="background: white;" id="hangup-btn">
+                  <i class="fas fa-phone" style="color: red;"></i>
                 </div>
                   
                 <!-- Video on/off button -->
                 <div classe="switch" style="margin-left: 10px;">
                 <input type="checkbox" name="un-cam" id="un-cam"/>
-                    <label for="un-cam" class="uncam" onClick="muteUnmute()">    
+                    <label for="un-cam" class="uncam" onClick="muteVideo()">    
                       <i class="fas fa-video"></i>
                     </label>
                     

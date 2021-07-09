@@ -108,7 +108,7 @@ peer.on('call', function(call) {
  });
 
 
-// Chat feature
+//------------------- Chat feature -----------------------
 const msgsend = document.getElementById("msgsend");
 msgsend.addEventListener('click', function (){
         data_channel.on('data',function(data){
@@ -199,7 +199,7 @@ window.onmousemove = (e) => {
   }
 };
 
-// Screen Share
+// -----------------------Screen Share-----------------------------------
  document.getElementById("screenshare").addEventListener('click', (e) => {
     navigator.mediaDevices.getDisplayMedia({
         video: {
@@ -231,12 +231,18 @@ function stopScreenShare(){
     sender.replaceTrack(videoTrack)
 }
 
-const hangUpBtn = document.querySelector('.hangup-btn');
-hangUpBtn.addEventListener('click', function(){
-    conn.close();
+// const hangUpBtn = document.querySelector('.hangup-btn');
+// hangUpBtn.addEventListener('click', function(){
+//     alert("Are you sure");
+//     conn.close();
+//     showCallContent();
+// })
+
+document.getElementById("hangup-btn").addEventListener('click', (e) => {
+    alert("Are you sure");
+    // conn.close();
     showCallContent();
 })
-
 
 // conn.on('close', function(){
 //     showCallContent();
@@ -260,7 +266,17 @@ function muteAudio(){
 //     }else{
 //         myVideo.getAudioTracks()[0].enabled = true;
 //     }
-// })
+// });
+
+function muteVideo(){
+    let enabled = window.localStream.getVideoTracks()[0].enabled;
+  if (enabled) {
+    window.localStream.getVideoTracks()[0].enabled = false;
+  } else {
+    window.localStream.getVideoTracks()[0].enabled = true;
+  }
+}
+
 
 
 
