@@ -1,7 +1,9 @@
 const peer = new Peer(''+Math.floor(Math.random()*2**18).toString(36).padStart(4,0), {
-    host: location.hostname,
+    host: 'hola-here.herokuapp.com',
+    port: 443,
     debug: 1,
-    path: '/myapp'
+    path: '/myapp',
+    secure: true
 });
 
 window.peer = peer;
