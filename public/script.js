@@ -164,7 +164,7 @@ canvas.width = 0.70 * window.innerWidth;
 // canvas.height = window.innerHeight;
 canvas.height = 0.80*window.innerHeight;
 
-var io = io.connect("http://localhost:8000/");
+var io = io.connect("ws://hola-here.herokuapp.com/socket.io/?EIO=4&transport=websocket");
 let ctx = canvas.getContext("2d");
 
 let x;
