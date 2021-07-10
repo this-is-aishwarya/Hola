@@ -20,10 +20,10 @@ Hola is a web conferencing app that supports real-time sharing of audio and vide
 #### For Windows/Linux/Mac
 
 Open cmd or terminal  
-` $ git clone https://github.com/this-is-aishwarya/Hola.git  
-  $ cd Hola  
-  $ npm install  
-  $ npm run build  
+` $ git clone https://github.com/this-is-aishwarya/Hola.git  <br />
+  $ cd Hola  <br />
+  $ npm install  <br />
+  $ npm run build  <br />
   $ npm start `  
   
 Start the peer server  
