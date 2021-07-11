@@ -29,15 +29,25 @@ npm run build
 npm start
 ```
   
-Start the peer server  
-` $ peerjs --port 443 --key peerjs --path /myapp `  
+On a new terminal, start the Peer server  
+``` shell
+peerjs --port 443 --key peerjs --path /myapp   
+```
 
 Open http://localhost:8000/
 
-### Backend 
+### Libraries & Frameworks
 
-### Frontend
+**Frontend**
+- Node Package Manager
+- React JS
+
+**Backend**
+- ExpressJS
+- PeerJS
+- Socket-io
 
 ### Major Resources
-
+[WebRTC connection using PeerJS](https://peerjs.com/docs.html)
+[Backend Services for WebRTC](https://www.html5rocks.com/en/tutorials/webrtc/infrastructure/)
 
