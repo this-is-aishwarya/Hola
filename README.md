@@ -26,7 +26,8 @@ git clone https://github.com/this-is-aishwarya/Hola.git
 cd Hola
 npm install
 npm run build
-npm start```
+npm start
+```
   
 Start the peer server  
 ` $ peerjs --port 443 --key peerjs --path /myapp `  
