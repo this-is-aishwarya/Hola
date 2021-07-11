@@ -15,7 +15,11 @@ Hola is a web conferencing app that supports real-time sharing of audio and vide
 
 ### Glimpses
 ![image](https://user-images.githubusercontent.com/64557504/125196854-0c499080-e279-11eb-8268-f20a3e3003b5.png)
-
+![image](https://user-images.githubusercontent.com/64557504/125199280-18d2e680-e283-11eb-984d-767daa1b247f.png)
+![image](https://user-images.githubusercontent.com/64557504/125199884-e7a7e580-e285-11eb-9e4c-e1a70fdacca5.png)
+![image](https://user-images.githubusercontent.com/64557504/125200188-6d786080-e287-11eb-86bc-48d9074834b0.png)
+![image](https://user-images.githubusercontent.com/64557504/125200077-eb883780-e286-11eb-90f3-5cdd3f7487dc.png)
+![image](https://user-images.githubusercontent.com/64557504/125200895-7c144700-e28a-11eb-9688-2b9d6865d27d.png)
 
 ### Run Locally
 
