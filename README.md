@@ -14,6 +14,8 @@ Hola is a web conferencing app that supports real-time sharing of audio and vide
 - Collaborative Whiteboard
 
 ### Glimpses
+![image](https://user-images.githubusercontent.com/64557504/125196854-0c499080-e279-11eb-8268-f20a3e3003b5.png)
+
 
 ### Run Locally
 
@@ -48,6 +50,6 @@ Open http://localhost:8000/
 - Socket-io
 
 ### Major Resources
-[WebRTC connection using PeerJS](https://peerjs.com/docs.html)
+[WebRTC connection using PeerJS](https://peerjs.com/docs.html) <br />
 [Backend Services for WebRTC](https://www.html5rocks.com/en/tutorials/webrtc/infrastructure/)
 
