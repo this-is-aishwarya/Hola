@@ -1,22 +1,24 @@
-# Hola - Let's Talk 
+# Hola - Let's Talk ✨
 
 ### Microsoft Teams Clone developed for **Microsoft Engage** Mentorship Program 2021. 
 
 Hola is a web conferencing app that supports real-time sharing of audio and video. Hola lets you stay in touch with your friends and colleagues with its instant video calling feature.
 
-### Features
+### Features 🌟
 
-- Multiple participants video calling.
-- Mute/Unmute and Video on/off feature.
-- Chat feature that lets the user chat before starting a video call, during the video call and after the call, once connected.
-- Light/dark mode toggle button
-- Screen Sharing
-- Collaborative Whiteboard
+- Multiple participants video calling. 🌍
+- An unique ID generation system for every individual user. 
+- Mute or unmute at any point 🎤
+- Video on/off to stop sharing video at any point 🎥
+- Adopt- Chat feature that lets the user chat before starting a video call, during the video call and after the call, once connected. 🗨
+- Light/dark mode toggle button 🌞/🌜
+- Screen Sharing 💻
+- Collaborative Whiteboard 📋🖌️
 
 ### Video Demo
 https://www.youtube.com/watch?v=Cv5qIBCQxxs
 
-### Glimpses
+### Glimpses 🎉
 
 1. A sharing ID is generated for individual user, which is used to connect to the other peer. Once the user gets connected, the peers can chat with each other. 
 
@@ -44,12 +46,21 @@ https://www.youtube.com/watch?v=Cv5qIBCQxxs
 ##### For Windows/Linux/Mac
 
 Open cmd or terminal  
-
+1. Clone the github repository
 ``` shell 
 git clone https://github.com/this-is-aishwarya/Hola.git 
+```
+2. Change the working directory
+``` shell 
 cd Hola
+```
+3. Install all libraries and dependencies
+``` shell 
 npm install
 npm run build
+```
+4. Run the web app in the development mode
+```shell
 npm start
 ```
   
@@ -58,7 +69,7 @@ On a new terminal, start the Peer server
 peerjs --port 443 --key peerjs --path /myapp   
 ```
 
-Open http://localhost:8000/ on the browser.
+Open http://localhost:8000/ to view the functioning on the browser.
 
 ### Instruction Manual
 
