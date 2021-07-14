@@ -18,6 +18,14 @@ Hola is a web conferencing app that supports real-time sharing of audio and vide
 ### 📸 Video Demo
 https://www.youtube.com/watch?v=Cv5qIBCQxxs
 
+### 🌀 Agile Methodology
+Agile is a chain of development in which specific set of tasks are achieved iteratively in accordance to their priorities. 
+
+**How I incorporated Agile methodology?**
+- The entire timeline was divided into 4 sprints - each one of the sprint was a week long sprint followed by one-on-one mentor calls and feedbacks.
+- I used an Agile Project Management Software - **Taiga.io** for smooth execution of the project .
+![image](https://user-images.githubusercontent.com/64557504/125581273-fb3fcf53-68fc-4866-a617-c014ffdf525a.png)
+
 ### 🎉 Glimpses 
 
 #### 1. A sharing ID is generated for individual user, which is used to connect to the other peer. Once the user gets connected, the peers can chat with each other. 
