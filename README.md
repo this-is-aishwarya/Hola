@@ -71,7 +71,7 @@ peerjs --port 443 --key peerjs --path /myapp
 
 Open http://localhost:8000/ to view the functioning on the browser.
 
-### Instruction Manual
+### 📋 Instruction Manual
 
 - To fully participate (and present) in a videoconference you need:
   - a webcam and headset, OR
@@ -88,7 +88,7 @@ Open http://localhost:8000/ to view the functioning on the browser.
   - Chat
  - The button on the top-right corner opens up the collaborative whiteboard.
  
-### Libraries & Frameworks
+### 🛠 Libraries & Frameworks 
 
 **Frontend**
 - Node Package Manager
@@ -100,6 +100,12 @@ Open http://localhost:8000/ to view the functioning on the browser.
 - PeerJS
 - Socket-io
 
-### Major Resources
+### 🧑🏻‍💻 Technology Decisions
+
+- **IDE**: Visual Studio Code
+- **Platform**: WebRTC
+- **Version Control System**: Github
+
+### 📰 Major Resources
 [WebRTC connection using PeerJS](https://peerjs.com/docs.html) <br />
 [Backend Services for WebRTC](https://www.html5rocks.com/en/tutorials/webrtc/infrastructure/)
